@@ -18,8 +18,8 @@
 
 const char* ssid = "Fios-6KrMh";
 const char* password = "con25won27crumb";
-const char* websocket_server_host = "192.168.1.187";
-const uint16_t websocket_server_port = 8888;
+const char* websocket_server_host = "https://stream.eng.buffalo.edu";
+const uint16_t websocket_server_port = 8080;
 
 using namespace websockets;
 WebsocketsClient client;
@@ -84,7 +84,7 @@ void setup() {
   Serial.print(WiFi.localIP());
   Serial.println("' to connect");
 
-  while(!client.connect(websocket_server_host, websocket_server_port, "/")){
+  while(!client.connect(websocket_server_host, websocket_server_port, "/video")){
     delay(500);
     Serial.print(".");
   }
